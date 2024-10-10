@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Sillow.DAL.Entities
 {
-    public class Admin
+    public class Admin : Person
     {
     }
 }

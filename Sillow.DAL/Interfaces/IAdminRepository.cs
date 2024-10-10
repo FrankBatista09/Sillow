@@ -4,9 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Sillow.DAL.Entities
+namespace Sillow.DAL.Interfaces
 {
-    public class PropertyType
+    public interface IAdminRepository
     {
+
     }
 }

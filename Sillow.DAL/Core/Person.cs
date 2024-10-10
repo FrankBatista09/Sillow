@@ -12,9 +12,27 @@ namespace Sillow.DAL.Core
     {
         [Key, DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int ID { get; set; }
-        public string FirstName { get; set; }
-        public string LastName { get; set; }
-        public string Description { get; set; }
 
+        [Required]
+        public required string FirstName { get; set; }
+
+        [Required]
+        public required string LastName { get; set; }
+
+        [Required]
+        public required string Email { get; set; }
+
+        [Required]
+        public required string PhoneNumber { get; set; }
+
+        [Required]
+        public required string Sex { get; set; }
+
+        [Required]
+        public DateTime CreatedDate { get; set; } = DateTime.Now;
+
+        public Person () => CreatedDate = DateTime.Now;
+
+        
     }
 }
