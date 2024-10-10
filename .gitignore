@@ -9,6 +9,7 @@
 *.user
 *.userosscache
 *.sln.docstates
+appsettings.json
 
 # User-specific files (MonoDevelop/Xamarin Studio)
 *.userprefs
@@ -302,8 +303,6 @@ node_modules/
 **/*.Server/ModelManifest.xml
 _Pvt_Extensions
 
-#Cadena de conexion
-appsettings.json
 
 # Paket dependency manager
 .paket/paket.exe
