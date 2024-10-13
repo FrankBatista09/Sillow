@@ -9,5 +9,8 @@ namespace Sillow.DAL.Entities
 {
     public class Admin : Person
     {
+        public bool IsActive { get; set; }
+
+        public Admin() => IsActive = true;
     }
 }

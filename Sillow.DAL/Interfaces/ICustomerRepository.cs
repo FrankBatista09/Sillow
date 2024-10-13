@@ -8,8 +8,7 @@ using System.Threading.Tasks;
 
 namespace Sillow.DAL.Interfaces
 {
-    public interface IAdminRepository : IBaseRepository<Admin>
+    public interface ICustomerRepository : IBaseRepository<Customer>
     {
-
     }
 }

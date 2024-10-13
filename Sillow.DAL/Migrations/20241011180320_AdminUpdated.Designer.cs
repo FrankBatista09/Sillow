@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Sillow.DAL.Context;
 
@@ -11,9 +12,11 @@ using Sillow.DAL.Context;
 namespace Sillow.DAL.Migrations
 {
     [DbContext(typeof(SillowContext))]
-    partial class SillowContextModelSnapshot : ModelSnapshot
+    [Migration("20241011180320_AdminUpdated")]
+    partial class AdminUpdated
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

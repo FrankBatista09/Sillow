@@ -29,7 +29,7 @@ namespace Sillow.DAL.Core
         public required string Sex { get; set; }
 
         [Required]
-        public DateTime CreatedDate { get; set; } = DateTime.Now;
+        public DateTime CreatedDate { get; set; }
 
         public Person () => CreatedDate = DateTime.Now;
 

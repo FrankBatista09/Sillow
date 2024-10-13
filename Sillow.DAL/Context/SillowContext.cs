@@ -55,6 +55,7 @@ namespace Sillow.DAL.Context
                 .WithMany(p => p.Properties)
                 .HasForeignKey(a => a.AgentID);
 
+
         }
     }
 }
