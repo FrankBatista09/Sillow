@@ -6,6 +6,7 @@ using Sillow.DAL.Interfaces;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Linq.Expressions;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -48,6 +49,19 @@ namespace Sillow.DAL.Repositories
                     await _sillowcontext.SaveChangesAsync();
                 }
                 return admin;
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex.Message);
+                throw;
+            }
+        }
+
+        public async Task<bool> Exist(Expression<Func<Property, bool>> expression)
+        {
+            try
+            {
+                return await _sillowcontext.Properties.AnyAsync(expression);
             }
             catch (Exception ex)
             {

@@ -6,6 +6,7 @@ using Sillow.DAL.Interfaces;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Linq.Expressions;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -40,7 +41,6 @@ namespace Sillow.DAL.Repositories
                             Email = entity.Email,
                             PhoneNumber = entity.PhoneNumber,
                             Sex = entity.Sex,
-                            CreatedDate = entity.CreatedDate
                         };
                         await _sillowcontext.Admins.AddAsync(admin);
                         break;
@@ -53,11 +53,10 @@ namespace Sillow.DAL.Repositories
                             Email = entity.Email,
                             PhoneNumber = entity.PhoneNumber,
                             Sex = entity.Sex,
-                            CreatedDate = entity.CreatedDate
                         };
                         await _sillowcontext.Agents.AddAsync(agent);
                         break;
-
+                        
                     case "Customer":
                         var customer = new Customer
                         {
@@ -66,7 +65,6 @@ namespace Sillow.DAL.Repositories
                             Email = entity.Email,
                             PhoneNumber = entity.PhoneNumber,
                             Sex = entity.Sex,
-                            CreatedDate = entity.CreatedDate
                         };
                         await _sillowcontext.Customers.AddAsync(customer);
                         break;
@@ -74,7 +72,6 @@ namespace Sillow.DAL.Repositories
                     default:
                         throw new ArgumentException("Invalid role");
                 }
-
                 await _sillowcontext.SaveChangesAsync();
                 return entity;
             }
@@ -89,6 +86,19 @@ namespace Sillow.DAL.Repositories
         public Task<User> Delete(int id)
         {
             throw new Exception("Delete User is not supported yet");
+        }
+
+        public async Task<bool> Exist(Expression<Func<User, bool>> expression)
+        {
+            try
+            {
+                return await _sillowcontext.Users.AnyAsync(expression);
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex.Message);
+                throw;
+            }
         }
 
         public async Task<IEnumerable<User>> GetAll()

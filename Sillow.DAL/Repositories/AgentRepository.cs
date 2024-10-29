@@ -6,6 +6,7 @@ using Sillow.DAL.Interfaces;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Linq.Expressions;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -39,6 +40,19 @@ namespace Sillow.DAL.Repositories
         public async Task<Agent> Delete(int id)
         {
             throw new Exception("Delete User is not supported yet");
+        }
+
+        public async Task<bool> Exist(Expression<Func<Agent, bool>> expression)
+        {
+            try
+            {
+                return await _sillowcontext.Agents.AnyAsync(expression);
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex.Message);
+                throw;
+            }
         }
 
         public async Task<IEnumerable<Agent>> GetAll()

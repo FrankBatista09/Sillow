@@ -6,6 +6,7 @@ using Sillow.DAL.Interfaces;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Linq.Expressions;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -54,6 +55,20 @@ namespace Sillow.DAL.Repositories
                 _logger.LogError(ex.Message);
                 throw;
             }
+        }
+
+        public async Task<bool> Exist(Expression<Func<Admin, bool>> expression)
+        {
+            try
+            {
+                return await _sillowcontext.Admins.AnyAsync(expression);
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex.Message);
+                throw;
+            }
+
         }
 
         public async Task<IEnumerable<Admin>> GetAll()

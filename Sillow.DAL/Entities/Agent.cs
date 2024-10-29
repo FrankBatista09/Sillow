@@ -13,6 +13,9 @@ namespace Sillow.DAL.Entities
         public string PropertyAmount { get; set; }
 
         public ICollection<Property> Properties { get; set; }
+
+        public Agent() => PropertyAmount = "0";
+
     }
     
 }
